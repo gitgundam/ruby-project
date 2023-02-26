@@ -1,7 +1,4 @@
-require "grape-swagger-rails"
-
 Rails.application.routes.draw do
-  # mount GrapeSwaggerRails::Engine => "/swagger"
   resources :apidocs, only: [:index]
 
   namespace :api do
@@ -11,7 +8,7 @@ Rails.application.routes.draw do
       resources :session, only: [:create, :destroy]
       resources :me, only: [:show]
       resources :items
-      resources :tags
+      resources :tags, :format => false
     end
   end
 end
